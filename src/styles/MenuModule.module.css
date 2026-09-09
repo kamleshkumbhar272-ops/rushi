@@ -1,0 +1,349 @@
+/* Menu.module.css — scoped styles for the <Menu /> component.
+   Restyled for the CHAMPAGNE LUXURY theme (brown/cream, solid colors).
+   Relies on the root variables defined in theme.css (--bg, --brown, --text, etc.)
+   so make sure that file is imported somewhere in your app (e.g. main.jsx). */
+
+.menuSection {
+  padding: 90px 20px 120px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+/* ---- Section heading ---- */
+.heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  color: var(--brown-dark);
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--heading);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px auto;
+  max-width: 320px;
+  justify-content: center;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--brown));
+}
+
+.dividerLine.reverse {
+  background: linear-gradient(to left, transparent, var(--brown));
+}
+
+.dividerDiamond {
+  width: 7px;
+  height: 7px;
+  background: var(--brown);
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+.dividerDot {
+  width: 5px;
+  height: 5px;
+  border: 1.5px solid var(--brown);
+  border-radius: 50%;
+}
+
+/* ---- Tab bar ---- */
+.tabBar {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+}
+
+.tabButton {
+  flex: 1;
+  min-width: 80px;
+  padding: 12px 22px;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tabButton:last-child {
+  border-right: none;
+}
+
+.tabButton:hover {
+  color: var(--brown-dark);
+  background: var(--bg-hover);
+}
+
+.tabButton.active {
+  background: var(--brown);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(75, 50, 34, 0.3);
+}
+
+/* ---- Category pills ---- */
+.pillRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.pill {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 7px 18px;
+  color: var(--text-muted);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pill:hover {
+  border-color: var(--brown);
+  color: var(--brown-dark);
+}
+
+.pill.active {
+  background: var(--brown);
+  border: 1px solid var(--brown);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(75, 50, 34, 0.3);
+}
+
+/* ---- Menu grid ---- */
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 24px;
+}
+
+/* ---- Category card ---- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 28px 20px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.35s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  border-color: var(--brown);
+  transform: translateY(-6px);
+}
+
+.cardCorner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+}
+
+.cardCorner.topLeft {
+  top: 0; left: 0;
+  border-top: 2px solid var(--brown-light);
+  border-left: 2px solid var(--brown-light);
+}
+.cardCorner.topRight {
+  top: 0; right: 0;
+  border-top: 2px solid var(--brown-light);
+  border-right: 2px solid var(--brown-light);
+}
+.cardCorner.bottomLeft {
+  bottom: 0; left: 0;
+  border-bottom: 2px solid var(--brown-light);
+  border-left: 2px solid var(--brown-light);
+}
+.cardCorner.bottomRight {
+  bottom: 0; right: 0;
+  border-bottom: 2px solid var(--brown-light);
+  border-right: 2px solid var(--brown-light);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.cardHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardIcon {
+  font-size: 1.4rem;
+}
+
+.cardTitle {
+  font-family: "Cinzel", serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--heading);
+  letter-spacing: 0.05em;
+}
+
+.cardCount {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  color: var(--brown-dark);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--border);
+  background: var(--bg-light);
+  padding: 3px 10px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.cardRule {
+  height: 1px;
+  background: linear-gradient(to right, var(--brown), transparent);
+  margin-bottom: 16px;
+  width: 60%;
+}
+
+/* ---- Menu item rows ---- */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.itemLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.itemDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brown-light);
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.item:hover .itemDot {
+  background: var(--brown);
+}
+
+.itemName {
+  color: var(--text-light);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.item:hover .itemName {
+  color: var(--text);
+}
+
+.itemPrice {
+  color: var(--brown-dark);
+  background: transparent;
+  border: 1px solid var(--brown);
+  padding: 3px 14px;
+  border-radius: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.item:hover .itemPrice {
+  color: #ffffff;
+  background: var(--brown);
+  border-color: var(--brown);
+}
+
+
+/* === Bilingual (EN/HI) support === */
+
+.titleHi {
+  font-family: "Noto Sans Devanagari", "Montserrat", sans-serif;
+  font-size: 0.6em;
+  color: var(--brown-dark);
+  font-weight: 500;
+}
+
+.cardTitleHi {
+  font-family: "Noto Sans Devanagari", "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+.itemNameHi {
+  font-family: "Noto Sans Devanagari", "Montserrat", sans-serif;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+
+.itemRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

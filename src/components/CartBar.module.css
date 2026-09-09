@@ -1,0 +1,33 @@
+.cartBar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #2B2119;
+  color: #FBF3E7;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 22px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.count {
+  opacity: 0.85;
+}
+
+.total {
+  font-weight: 800;
+  color: #E8A33D;
+}
+
+.cta {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 14px;
+}

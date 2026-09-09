@@ -1,0 +1,572 @@
+/* Menu.module.css — BROWN & CREAM (solid) variant
+   Uses the color variables defined in styles/theme.css:
+   --brown, --brown-dark, --brown-light, --cream, --cream-light,
+   --heading, --font-display, --font-script */
+
+.menuSection {
+  padding: 90px 20px 120px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ---- Section heading ---- */
+.heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  font-family: var(--font-script);
+  font-size: 0.9rem;
+  color: var(--brown);
+  letter-spacing: 0.3em;
+  font-style: italic;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  color: var(--brown-dark);
+
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.15s forwards;
+}
+
+.titleHi {
+  color: var(--text-muted);
+  font-size: 0.55em;
+  font-weight: 600;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px auto;
+  max-width: 320px;
+  justify-content: center;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--brown));
+}
+
+.dividerLine.reverse {
+  background: linear-gradient(to left, transparent, var(--brown));
+}
+
+.dividerDiamond {
+  width: 9px;
+  height: 9px;
+  background: var(--brown);
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+.dividerDot {
+  width: 7px;
+  height: 7px;
+  border: 2px solid var(--brown);
+  border-radius: 50%;
+}
+
+/* ---- Tab bar — solid brown bar ---- */
+.tabBar {
+  position: relative;
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin: 0 auto 20px;
+  max-width: 620px;
+  background: var(--brown);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--brown-dark);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.2),
+    0 14px 30px rgba(75, 50, 34, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* thin corner brackets — picture-frame detail */
+.tabBar::before,
+.tabBar::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 4px;
+  border: 1px solid var(--cream-light);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.tabBar::before { left: 4px; border-right: none; border-bottom: none; }
+.tabBar::after  { right: 4px; border-left: none; border-bottom: none; }
+
+.tabButton {
+  position: relative;
+  isolation: isolate;
+  flex: 1;
+  min-width: 100px;
+  padding: 14px 20px;
+  background: transparent;
+  border: none;
+  color: var(--cream-light);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+/* hairline divider between tabs (not before the first) */
+.tabButton + .tabButton::before {
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.tabButton .hi {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  opacity: 0.7;
+}
+
+.tabButton:hover {
+  color: var(--cream);
+}
+
+.tabButton.active {
+  color: #ffffff;
+}
+
+/* solid plaque behind the active label */
+.tabButton.active::after {
+  position: absolute;
+  inset: 3px;
+  z-index: -1;
+  border-radius: 8px;
+  background: var(--brown-dark);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.tabButton.active .hi {
+  opacity: 0.9;
+}
+
+/* ---- Category pills — one level quieter than tab bar ---- */
+.pillRow {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 44px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow);
+}
+
+.pillIconWrap {
+  margin-right: 6px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 22px;
+  color: var(--brown-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+}
+
+.pill:hover {
+  color: var(--brown-dark);
+  background: rgba(111, 78, 55, 0.12);
+}
+
+.pill.active {
+  color: #ffffff;
+  background: var(--brown);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ---- Menu grid: magazine two-column layout ---- */
+.menuGrid {
+  columns: 2;
+  column-gap: 24px;
+}
+
+/* ---- Category card — cream body, solid brown header ---- */
+.card {
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 22px;
+  margin-bottom: 0;
+  background: var(--brown);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  gap: 12px;
+  /* per-category header tint, if any, can still be set inline by the component;
+     this solid brown is the default */
+}
+
+.cardHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--cream-light);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.cardTitleHi {
+  font-size: 0.72rem;
+  color: var(--cream-light);
+  font-weight: 600;
+  margin: 2px 0 0;
+}
+
+.cardCount {
+  font-size: 0.68rem;
+  color: var(--brown-dark);
+  background: var(--cream-light);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 50px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cardBody {
+  padding: 8px 22px 14px;
+}
+
+/* ---- Menu item rows ---- */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px dashed var(--border);
+  transition: all 0.22s ease;
+  gap: 10px;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.itemLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.itemDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brown);
+  flex-shrink: 0;
+}
+
+/* ---- Menu item photo ---- */
+.itemPhoto {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: var(--bg-hover);
+}
+
+.itemName {
+  color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.itemDesc {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+  line-height: 1.3;
+}
+
+.item:hover .itemName {
+  color: var(--brown-dark);
+}
+
+.itemNameHi {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.itemRight {
+  display: flex;
+  color: var(--text);
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.itemPrice {
+  color: #ffffff;
+  background: var(--brown);
+  border: none;
+  padding: 5px 16px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.item:hover .itemPrice {
+  background: var(--brown-dark);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+   Breakpoints: 900px (grid/spacing), 640px (tab bar / pills /
+   cards), 420px (item rows stack on very narrow phones)
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .menuSection {
+    padding: 70px 18px 90px;
+  }
+
+  .menuGrid {
+    columns: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .menuSection {
+    padding: 56px 14px 72px;
+  }
+
+  .heading {
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+
+  .divider {
+    max-width: 220px;
+    margin: 16px auto;
+  }
+
+  .tabBar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+  .tabBar::-webkit-scrollbar {
+    display: none;
+  }
+  .tabBar::before,
+  .tabBar::after {
+    display: none;
+  }
+
+  .tabButton {
+    flex: 0 0 auto;
+    min-width: auto;
+    padding: 11px 16px;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    scroll-snap-align: start;
+  }
+
+  .tabButton .hi {
+    font-size: 0.56rem;
+  }
+
+  .pillRow {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .pill {
+    padding: 8px 14px;
+    font-size: 0.66rem;
+  }
+
+  .cardHeader {
+    padding: 13px 16px;
+  }
+
+  .cardIcon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.95rem;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+  }
+
+  .cardTitleHi {
+    font-size: 0.68rem;
+  }
+
+  .cardCount {
+    font-size: 0.6rem;
+    padding: 4px 10px;
+  }
+
+  .cardBody {
+    padding: 4px 16px 10px;
+  }
+
+  .item {
+    padding: 11px 0;
+  }
+
+  .itemName {
+    font-size: 0.9rem;
+  }
+
+  .itemNameHi {
+    font-size: 0.68rem;
+  }
+
+  .itemDesc {
+    font-size: 0.72rem;
+  }
+
+  .itemPhoto {
+    width: 44px;
+    height: 44px;
+  }
+
+  .itemPrice {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .item {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  .itemLeft {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .itemPhoto {
+    width: 40px;
+    height: 40px;
+  }
+
+  .itemRight {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .cardHeader {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  .cardCount {
+    margin-left: auto;
+  }
+}

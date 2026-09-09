@@ -1,0 +1,587 @@
+linear-gradient(100deg, var(--gold) 0%, var(--gold-light) 25%, #f5e9c8 45%, var(--gold-light) 65%, var(--gold) 100%);
+
+/////////////////////////////////////white black//////////////////////////
+/* Menu.module.css — ROYAL INK & GOLD variant
+   Uses the color variables defined in styles/theme.css:
+   --color-gold, --gold-dark, --gold-light, --heading, --font-display, --font-script
+   All one-off colors below (ink tones, cream, terracotta) are hardcoded
+   deliberately to stay in the same family everywhere — swap for CSS vars
+   if you formalize them in theme.css later. */
+
+.menuSection {
+  padding: 90px 20px 120px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ---- Section heading ---- */
+.heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  font-family: var(--font-script);
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  letter-spacing: 0.3em;
+  font-style: italic;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+
+  background: linear-gradient(
+    100deg,
+    var(--gold-dark) 0%,
+    var(--gold-light) 25%,
+    var(--heading) 45%,
+    var(--gold-light) 65%,
+    var(--gold-dark) 100%
+  );
+  background-size: 250% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--heading);
+
+  opacity: 0;
+  animation:
+    fadeUp 0.9s ease 0.15s forwards,
+    shimmer 6s linear 1.2s infinite;
+}
+
+.titleHi {
+  -webkit-text-fill-color: initial;
+  color: rgba(217, 205, 185, 0.7);
+  font-size: 0.55em;
+  font-weight: 600;
+  background: none;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px auto;
+  max-width: 320px;
+  justify-content: center;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--color-gold));
+}
+
+.dividerLine.reverse {
+  background: linear-gradient(to left, transparent, var(--color-gold));
+}
+
+.dividerDiamond {
+  width: 9px;
+  height: 9px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+.dividerDot {
+  width: 7px;
+  height: 7px;
+  border: 2px solid var(--color-gold);
+  border-radius: 50%;
+}
+
+/* ---- Tab bar — royal gold-on-ink ---- */
+.tabBar {
+  position: relative;
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin: 0 auto 20px;
+  max-width: 620px;
+  background: linear-gradient(100deg, var(--color-gold) 0%, var(--gold-light) 25%, #f5e9c8 45%, var(--gold-light) 65%, var(--color-gold) 100%);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--color-gold);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 14px 30px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* thin gold corner brackets — picture-frame detail */
+.tabBar::before,
+.tabBar::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 4px;
+  border: 1px solid var(--color-gold);
+  opacity: 0.8;
+  pointer-events: none;
+}
+.tabBar::before { left: 4px; border-right: none; border-bottom: none; }
+.tabBar::after  { right: 4px; border-left: none; border-bottom: none; }
+
+.tabButton {
+  position: relative;
+  isolation: isolate;
+  flex: 1;
+  min-width: 100px;
+  padding: 14px 20px;
+  background: transparent;
+  border: none;
+  color: #2b2424;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+/* hairline gold divider between tabs (not before the first) */
+.tabButton + .tabButton::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 1px;
+  background: rgba(201, 162, 39, 0.28);
+}
+
+.tabButton .hi {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  opacity: 0.55;
+}
+
+.tabButton:hover {
+  color: var(--color-gold);
+}
+
+.tabButton.active {
+  color: #000000;
+}
+
+/* embossed gold-foil plaque behind the active label */
+.tabButton.active::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  z-index: -1;
+  border-radius: 8px;
+  background: linear-gradient(100deg, var(--color-gold) 0%, var(--gold-light) 25%, #f5e9c8 45%, var(--gold-light) 65%, var(--color-gold) 100%);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.tabButton.active .hi {
+  opacity: 0.75;
+}
+
+/* ---- Category pills — recessed panel, one level quieter than tab bar ---- */
+.pillRow {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 44px;
+  background: linear-gradient(100deg, var(--color-gold) 0%, var(--gold-light) 25%, #f5e9c8 45%, var(--gold-light) 65%, var(--color-gold) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 6px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+   box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 14px 30px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.pillIconWrap {
+  margin-right: 6px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 22px;
+  color: #443e32;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+}
+
+.pill:hover {
+  color: var(--color-gold);
+  background: rgba(201, 162, 39, 0.12);
+}
+
+.pill.active {
+  color: #ffffff;
+  background: linear-gradient(100deg, var(--color-gold) 0%, var(--gold-light) 25%, #f5e9c8 45%, var(--gold-light) 65%, var(--color-gold) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* ---- Menu grid: magazine two-column layout ---- */
+.menuGrid {
+  columns: 2;
+  column-gap: 24px;
+}
+
+/* ---- Category card — ink body, colored plaque header ---- */
+.card {
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 24px;
+  background: linear-gradient(100deg, var(--color-gold) 0%, var(--gold-light) 25%, #f5e9c8 45%, var(--gold-light) 65%, var(--color-gold) 100%);
+  border: 1px solid rgba(201, 162, 39, 0.18);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 22px;
+  margin-bottom: 0;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  gap: 12px;
+  /* background is set inline per-category by the component */
+}
+
+.cardHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(100deg, var(--gold) 0%, var(--gold-light) 25%, #f5e9c8 45%, var(--gold-light) 65%, var(--gold) 100%);
+  border: 1px solid rgb(66, 59, 59);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(0, 0, 0, 0.651);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #fbf3e2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.cardTitleHi {
+  font-size: 0.72rem;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  margin: 2px 0 0;
+}
+
+.cardCount {
+  font-size: 0.68rem;
+  color: #1a1410;
+  background: linear-gradient(100deg, var(--gold) 0%, var(--gold-light) 25%, #f5e9c8 45%, var(--gold-light) 65%, var(--gold) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 50px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cardBody {
+  padding: 8px 22px 14px;
+}
+
+/* ---- Menu item rows ---- */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px dashed rgba(201, 163, 39, 0.747);
+  transition: all 0.22s ease;
+  gap: 10px;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.itemLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.itemDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.itemName {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.item:hover .itemName {
+  color: var(--color-gold);
+}
+
+.itemNameHi {
+  font-size: 0.72rem;
+  color: rgba(0, 0, 0, 0.712);
+  margin-top: 2px;
+}
+
+.itemRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.itemPrice {
+  color: #1a1410;
+  background: linear-gradient(180deg, #ffcd36 0%, var(--color-gold) 100%);
+  border: none;
+  padding: 5px 16px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.item:hover .itemPrice {
+  filter: brightness(1.08);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -250% center;
+  }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+   Breakpoints: 900px (grid/spacing), 640px (tab bar / pills /
+   cards), 420px (item rows stack on very narrow phones)
+   ========================================================= */
+
+/* ---- Tablet / narrow desktop: single column kicks in earlier
+   than a full phone breakpoint, spacing tightens slightly ---- */
+@media (max-width: 900px) {
+  .menuSection {
+    padding: 70px 18px 90px;
+  }
+
+  .menuGrid {
+    columns: 1;
+  }
+}
+
+/* ---- Phones ---- */
+@media (max-width: 640px) {
+  .menuSection {
+    padding: 56px 14px 72px;
+  }
+
+  .heading {
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+
+  .divider {
+    max-width: 220px;
+    margin: 16px auto;
+  }
+
+  /* Tab bar becomes a horizontally-scrollable strip instead of
+     squeezing every label into an illegible sliver. Snap scrolling
+     makes it feel intentional rather than an overflow accident. */
+  .tabBar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+  .tabBar::-webkit-scrollbar {
+    display: none;
+  }
+  .tabBar::before,
+  .tabBar::after {
+    display: none;
+  }
+
+  .tabButton {
+    flex: 0 0 auto;
+    min-width: auto;
+    padding: 11px 16px;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    scroll-snap-align: start;
+  }
+
+  .tabButton .hi {
+    font-size: 0.56rem;
+  }
+
+  /* Pill row: use the full width and wrap tightly rather than
+     staying pinned to fit-content, which can overflow the
+     viewport once 4+ categories are present. */
+  .pillRow {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .pill {
+    padding: 8px 14px;
+    font-size: 0.66rem;
+  }
+
+  .cardHeader {
+    padding: 13px 16px;
+  }
+
+  .cardIcon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.95rem;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+  }
+
+  .cardTitleHi {
+    font-size: 0.68rem;
+  }
+
+  .cardCount {
+    font-size: 0.6rem;
+    padding: 4px 10px;
+  }
+
+  .cardBody {
+    padding: 4px 16px 10px;
+  }
+
+  .item {
+    padding: 11px 0;
+  }
+
+  .itemName {
+    font-size: 0.9rem;
+  }
+
+  .itemNameHi {
+    font-size: 0.68rem;
+  }
+
+  .itemPrice {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ---- Small phones: item row runs out of horizontal room once
+   name + price + add-to-order button are all inline, so it wraps
+   to two lines with the price/button right-aligned on their own row ---- */
+@media (max-width: 420px) {
+  .item {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  .itemLeft {
+    flex: 1 1 100%;
+  }
+
+  .itemRight {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .cardHeader {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  .cardCount {
+    margin-left: auto;
+  }
+}

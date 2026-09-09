@@ -1,0 +1,44 @@
+
+
+
+
+/* about */
+.about-section {
+  padding: 140px 24px 100px;
+  background: var(--bg);
+  min-height: 60vh;
+}
+
+.about-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 24px auto 48px;
+}
+
+
+
+.about-content {
+  max-width: 700px;
+  margin: 0 auto; /* this centers the whole block horizontally */
+  color: var(--text-light);
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+.about-content p {
+  margin-bottom: 28px;
+  text-align: justify;
+  text-align-last: center; /* centers the last line instead of left */
+  hyphens: auto;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 100px 20px 70px;
+  }
+}   

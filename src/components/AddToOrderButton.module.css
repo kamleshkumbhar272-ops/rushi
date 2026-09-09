@@ -1,0 +1,142 @@
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border: 1px solid var(--color-gold, #F0A613);
+  color: var(--color-gold, #F0A613);
+  background: transparent;
+  border-radius: 999px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.35s ease, border-color 0.35s ease, transform 0.15s ease;
+}
+
+.addBtn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-light, #FFC801), var(--gold-dark, #C9860A));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 0;
+}
+
+.addBtn:hover::before,
+.addBtn:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.addBtn:hover,
+.addBtn:focus-visible {
+  color: #201B21;
+  border-color: var(--gold-light, #FFC801);
+}
+
+.addBtn:active {
+  transform: scale(0.96);
+}
+
+.plusIcon,
+.addLabel {
+  position: relative;
+  z-index: 1;
+}
+
+.plusIcon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* --- Stepper (quantity control) --- */
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--color-gold, #F0A613);
+  border-radius: 999px;
+  padding: 4px 6px;
+  background: rgba(240, 166, 19, 0.06);
+}
+
+.stepBtn {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--gold-light, #FFC801), var(--gold-dark, #C9860A));
+  color: #201B21;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, filter 0.2s ease;
+}
+
+.stepBtn:hover {
+  filter: brightness(1.08);
+}
+
+.stepBtn:active {
+  transform: scale(0.9);
+}
+
+.qty {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--heading, #F0A613);
+  font-variant-numeric: tabular-nums;
+  animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(1.35);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- Responsive --- */
+@media (max-width: 640px) {
+  .addBtn {
+    padding: 6px 12px;
+    font-size: 0.72rem;
+  }
+  .stepBtn {
+    width: 24px;
+    height: 24px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .addBtn {
+    padding: 5px 10px;
+    gap: 4px;
+  }
+  .addLabel {
+    display: none; /* icon-only on very small screens */
+  }
+  .stepper {
+    gap: 8px;
+    padding: 3px 4px;
+  }
+}
