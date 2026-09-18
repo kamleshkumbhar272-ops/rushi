@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="footer-brand">
           <div className="footer-logo">🍃 New Vatika Café</div>
-          <div className="footer-tagline">Developed by shree ❤️</div>
+          <div className="footer-tagline">Developed by rushi ❤️</div>
           <p>
             New mondha, Infront of Hanuman Mandir, Bhatt Colony, Siddharth Nagar, Hingoli, Maharashtra 431513</p>
           <div className="footer-social">
