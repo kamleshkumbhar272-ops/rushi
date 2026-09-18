@@ -59,7 +59,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>Designed And Developed by Shreeyassh 💛· Copyright © 2026 New Vatika Café. All rights reserved.</p>
+        <p>Designed And Developed by rushi 💛· Copyright © 2026 New Vatika Café. All rights reserved.</p>
         <div className="footer-bottom-links">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
